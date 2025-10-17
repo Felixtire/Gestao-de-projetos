@@ -1,6 +1,7 @@
 package com.gestao.api.api.domain.project;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.gestao.api.api.domain.dto.DadosParaCriarProjeto;
 import com.gestao.api.api.domain.task.TaskT;
 import jakarta.persistence.*;
@@ -10,9 +11,11 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import org.springframework.scheduling.config.Task;
 
+import java.text.Format;
 import java.util.Date;
+import java.util.List;
 
-@Entity(name = "project")
+@Entity(name = "Project")
 @Table(name = "projects")
 @Data
 @AllArgsConstructor
@@ -25,11 +28,14 @@ public class ProjectEntity {
 
     private String name;
     private String description;
+    @JsonFormat(pattern="yyyy-MM-dd'T'HH:mm:ss")
     private Date startDate;
+    @JsonFormat(pattern="yyyy-MM-dd'T'HH:mm:ss")
     private Date endDate;
 
-    @Embedded
-    private TaskT task;
+
+    @OneToMany(mappedBy = "project", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<TaskT> tasks;
 
     public ProjectEntity(DadosParaCriarProjeto dados) {
         this.name = dados.name();

@@ -1,5 +1,7 @@
 package com.gestao.api.api.domain.task;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.gestao.api.api.domain.project.ProjectEntity;
 import jakarta.persistence.*;
 import jdk.jshell.Snippet;
 import lombok.AllArgsConstructor;
@@ -8,8 +10,8 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
-
-@Embeddable
+@Entity(name = "Task")
+@Table(name = "tasks")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -17,10 +19,10 @@ import java.util.Date;
 public class TaskT {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long idTarefa;
 
     private String title;
-    private String description;
+    private String descriptionTask;
 
     @Enumerated(EnumType.STRING)
     private Status status;
@@ -28,7 +30,12 @@ public class TaskT {
     @Enumerated(EnumType.STRING)
     private Priority priority;
 
+    @JsonFormat(pattern="yyyy-MM-dd'T'HH:mm:ss")
     private Date dueDate;
-    private Long projectId;
+
+
+    @ManyToOne
+    @JoinColumn(name = "project_id")
+    private ProjectEntity project;
 
 }

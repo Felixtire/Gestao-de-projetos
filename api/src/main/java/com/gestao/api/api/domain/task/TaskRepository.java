@@ -1,4 +1,6 @@
 package com.gestao.api.api.domain.task;
 
-public interface TaskRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface TaskRepository extends JpaRepository<TaskT, Long> {
 }

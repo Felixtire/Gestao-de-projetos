@@ -10,8 +10,8 @@ public record DadosParaCriarProjeto(
         @NotBlank
         String name,
         String description,
-        Date startDate ,
+        LocalDate startDate ,
 
-        Date endDate
+        LocalDate endDate
 ) {
 }

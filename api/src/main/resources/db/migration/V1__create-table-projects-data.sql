@@ -2,8 +2,8 @@ CREATE TABLE projects (
     id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(200) NOT NULL,
     description VARCHAR(500),
-    start_date DATETIME,
-    end_date DATETIME
+    start_date DATE,
+    end_date DATE
 );
 
 CREATE TABLE tasks (
@@ -12,7 +12,7 @@ CREATE TABLE tasks (
     description_task VARCHAR(500),
     status VARCHAR(100) NOT NULL,
     priority VARCHAR(100) NOT NULL,
-    due_date DATETIME,
+    due_date DATE,
     project_id BIGINT,
     FOREIGN KEY (project_id) REFERENCES projects(id)
 );

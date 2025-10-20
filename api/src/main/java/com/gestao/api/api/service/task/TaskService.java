@@ -9,9 +9,9 @@ import com.gestao.api.api.domain.task.TaskT;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Collections;
+
 import java.util.List;
-import java.util.Optional;
+
 
 @Service
 public class TaskService {
@@ -33,14 +33,6 @@ public class TaskService {
 
     }
 
-    public List<TaskT> listForStatusTasks(Status status){
-        if (status == null){
-            return null;
-        }
-        return taskRepository.findByStatus(status);
-
-    }
-
     public TaskT listForIdTask(Long id){
         if(id == null){
             return null;
@@ -50,18 +42,12 @@ public class TaskService {
                 .orElseThrow(() -> new RuntimeException("Tarefa não encontrada ou não existe"));
     }
 
-
-    public List<TaskT> listForPriorityTask(Priority priority){
-        if (priority == null){
-            return null;
-        }
-        return  taskRepository.findByPriority(priority);
-
-    }
-
     public List<TaskT> list(Status status, Priority priority, Long id){
         if (id != null){
             return List.of(listForIdTask(id));
+        }
+        if (priority != null && status != null){
+            return taskRepository.findByPriorityAndStatus(priority, status);
         }
         if (status != null){
             return taskRepository.findByStatus(status);
@@ -69,6 +55,22 @@ public class TaskService {
         if (priority != null){
             return taskRepository.findByPriority(priority);
         }
+
         return taskRepository.findAll();
+    }
+
+    public TaskT updateTask(Long id, Status status){
+        var task = taskRepository.findById(id).orElseThrow(()->new RuntimeException("Tarefa não encontrada"));
+        task.setStatus(status);
+        taskRepository.save(task);
+
+        return task;
+
+    }
+    public String deleteTask(Long id){
+        var task = taskRepository.findById(id).orElseThrow(()->new RuntimeException("Tarefa não encontrada"));
+        taskRepository.deleteById(task.getId());
+
+        return "Tarefa excluida com sucesso";
     }
 }

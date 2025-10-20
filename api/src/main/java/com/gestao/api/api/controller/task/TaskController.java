@@ -1,9 +1,11 @@
 package com.gestao.api.api.controller.task;
 
 import com.gestao.api.api.domain.dto.DadosParaCriarTask;
+import com.gestao.api.api.domain.dto.DadosTaskAtualizada;
 import com.gestao.api.api.domain.dto.DadosTaskCriada;
 import com.gestao.api.api.domain.task.Priority;
 import com.gestao.api.api.domain.task.Status;
+import com.gestao.api.api.domain.task.TaskT;
 import com.gestao.api.api.service.task.TaskService;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
@@ -11,8 +13,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
-import java.util.Map;
 
 @RestController
 @RequestMapping("/task")
@@ -40,6 +40,22 @@ public class TaskController {
 
 
         return ResponseEntity.ok().body(result);
+    }
+
+    @PutMapping("{id}/{status}")
+    @Transactional
+    public ResponseEntity uptadateTask(@PathVariable Long id, @PathVariable Status status){
+
+        var update = service.updateTask(id, status);
+
+        return ResponseEntity.ok().body(new DadosTaskAtualizada(update));
+    }
+
+    @DeleteMapping("{id}")
+    @Transactional
+    public ResponseEntity deleteTask(@PathVariable Long id){
+        service.deleteTask(id);
+        return ResponseEntity.noContent().build();
     }
 
 

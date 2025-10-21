@@ -1,11 +1,10 @@
 package com.gestao.api.api.controller.task;
 
-import com.gestao.api.api.domain.dto.DadosParaCriarTask;
-import com.gestao.api.api.domain.dto.DadosTaskAtualizada;
-import com.gestao.api.api.domain.dto.DadosTaskCriada;
+import com.gestao.api.api.domain.dto.task.DadosParaCriarTask;
+import com.gestao.api.api.domain.dto.task.DadosTaskAtualizada;
+import com.gestao.api.api.domain.dto.task.DadosTaskCriada;
 import com.gestao.api.api.domain.task.Priority;
 import com.gestao.api.api.domain.task.Status;
-import com.gestao.api.api.domain.task.TaskT;
 import com.gestao.api.api.service.task.TaskService;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;

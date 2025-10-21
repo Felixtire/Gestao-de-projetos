@@ -2,17 +2,16 @@ package com.gestao.api.api.domain.task;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.gestao.api.api.domain.dto.DadosParaCriarTask;
+import com.gestao.api.api.domain.dto.task.DadosParaCriarTask;
 import com.gestao.api.api.domain.project.ProjectEntity;
 import jakarta.persistence.*;
-import jdk.jshell.Snippet;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
-import java.util.Date;
+
 @Entity(name = "Task")
 @Table(name = "tasks")
 @Data

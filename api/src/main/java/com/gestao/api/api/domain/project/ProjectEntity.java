@@ -2,18 +2,15 @@ package com.gestao.api.api.domain.project;
 
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.gestao.api.api.domain.dto.DadosParaCriarProjeto;
+import com.gestao.api.api.domain.dto.project.DadosParaCriarProjeto;
 import com.gestao.api.api.domain.task.TaskT;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-import org.springframework.scheduling.config.Task;
 
-import java.text.Format;
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.List;
 
 @Entity(name = "Project")

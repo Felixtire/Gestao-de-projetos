@@ -1,6 +1,6 @@
 package com.gestao.api.api.service.task;
 
-import com.gestao.api.api.domain.dto.DadosParaCriarTask;
+import com.gestao.api.api.domain.dto.task.DadosParaCriarTask;
 import com.gestao.api.api.domain.project.ProjectRepository;
 import com.gestao.api.api.domain.task.Priority;
 import com.gestao.api.api.domain.task.Status;

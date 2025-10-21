@@ -1,13 +1,11 @@
 package com.gestao.api.api.controller.project;
 
-import com.gestao.api.api.domain.dto.DadosListagemProjeto;
-import com.gestao.api.api.domain.dto.DadosParaCriarProjeto;
-import com.gestao.api.api.domain.dto.DadosProjetoCriado;
-import com.gestao.api.api.domain.project.ProjectEntity;
+import com.gestao.api.api.domain.dto.project.DadosListagemProjeto;
+import com.gestao.api.api.domain.dto.project.DadosParaCriarProjeto;
+import com.gestao.api.api.domain.dto.project.DadosProjetoCriado;
 import com.gestao.api.api.service.project.ProjectService;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
-import org.hibernate.event.spi.SaveOrUpdateEvent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

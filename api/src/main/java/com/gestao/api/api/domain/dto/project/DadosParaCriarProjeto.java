@@ -1,9 +1,8 @@
-package com.gestao.api.api.domain.dto;
+package com.gestao.api.api.domain.dto.project;
 
 import jakarta.validation.constraints.NotBlank;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 public record DadosParaCriarProjeto(
 

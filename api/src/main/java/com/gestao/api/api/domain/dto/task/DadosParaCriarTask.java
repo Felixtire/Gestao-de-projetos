@@ -1,7 +1,7 @@
 package com.gestao.api.api.domain.dto.task;
 
-import com.gestao.api.api.domain.task.Priority;
-import com.gestao.api.api.domain.task.Status;
+import com.gestao.api.api.domain.task.enu.Priority;
+import com.gestao.api.api.domain.task.enu.Status;
 
 import java.time.LocalDate;
 

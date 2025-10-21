@@ -1,10 +1,10 @@
 package com.gestao.api.api.service.task;
 
 import com.gestao.api.api.domain.dto.task.DadosParaCriarTask;
-import com.gestao.api.api.domain.project.ProjectRepository;
-import com.gestao.api.api.domain.task.Priority;
-import com.gestao.api.api.domain.task.Status;
-import com.gestao.api.api.domain.task.TaskRepository;
+import com.gestao.api.api.repository.ProjectRepository;
+import com.gestao.api.api.domain.task.enu.Priority;
+import com.gestao.api.api.domain.task.enu.Status;
+import com.gestao.api.api.repository.TaskRepository;
 import com.gestao.api.api.domain.task.TaskT;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

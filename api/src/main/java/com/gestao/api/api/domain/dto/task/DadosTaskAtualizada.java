@@ -1,6 +1,6 @@
 package com.gestao.api.api.domain.dto.task;
 
-import com.gestao.api.api.domain.task.Status;
+import com.gestao.api.api.domain.task.enu.Status;
 import com.gestao.api.api.domain.task.TaskT;
 
 public record DadosTaskAtualizada(String title , String description, Status status) {

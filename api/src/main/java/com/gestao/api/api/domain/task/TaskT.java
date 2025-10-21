@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.gestao.api.api.domain.dto.task.DadosParaCriarTask;
 import com.gestao.api.api.domain.project.ProjectEntity;
+import com.gestao.api.api.domain.task.enu.Priority;
+import com.gestao.api.api.domain.task.enu.Status;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;

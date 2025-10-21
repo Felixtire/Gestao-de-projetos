@@ -24,8 +24,7 @@ public class TaskService {
 
     public TaskT createTask(DadosParaCriarTask dados){
         var project = projectRepository.findById(dados.Idproject())
-                .orElseThrow(()-> new RuntimeException("Projeto não encontrado"));
-
+                    .orElseThrow(()-> new RuntimeException("Projeto não encontrado"));
 
         var task = new TaskT(dados);
 

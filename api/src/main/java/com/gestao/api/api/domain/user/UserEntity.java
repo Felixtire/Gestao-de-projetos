@@ -1,5 +1,6 @@
 package com.gestao.api.api.domain.user;
 
+import com.gestao.api.api.domain.dto.DadosCadastroDto;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -25,6 +26,17 @@ public class UserEntity implements UserDetails {
 
     private String login;
     private String senha;
+    private String nome;
+    private String idade;
+
+
+    public UserEntity(DadosCadastroDto dto){
+        this.login= dto.login();
+        this.senha = dto.senha();
+        this.nome = dto.nome();
+        this.idade = dto.idade();
+    }
+
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

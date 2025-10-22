@@ -1,0 +1,1 @@
+ALTER TABLE usuarios MODIFY idade INT NOT NULL;

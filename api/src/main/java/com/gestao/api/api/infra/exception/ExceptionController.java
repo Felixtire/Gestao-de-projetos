@@ -1,13 +1,17 @@
 package com.gestao.api.api.infra.exception;
 
-import com.gestao.api.api.domain.dto.DadosDetalhamentoErroMessage;
-import com.gestao.api.api.domain.dto.DadosDetalhamentoErro;
+import com.gestao.api.api.domain.dto.infra.DadosDetalhamentoErroMessage;
+import com.gestao.api.api.domain.dto.infra.DadosDetalhamentoErro;
 import jakarta.persistence.EntityNotFoundException;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.client.HttpClientErrorException;
+
+import java.nio.file.AccessDeniedException;
 
 @RestControllerAdvice
 public class ExceptionController {
@@ -37,4 +41,5 @@ public class ExceptionController {
         var erro = ex.getMessage();
         return ResponseEntity.badRequest().body(new DadosDetalhamentoErroMessage(erro));
     }
+
 }

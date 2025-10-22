@@ -1,6 +1,6 @@
 package com.gestao.api.api.domain.user;
 
-import com.gestao.api.api.domain.dto.DadosCadastroDto;
+import com.gestao.api.api.domain.dto.user.DadosCadastroDto;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -27,7 +27,7 @@ public class UserEntity implements UserDetails {
     private String login;
     private String senha;
     private String nome;
-    private String idade;
+    private int idade;
 
 
     public UserEntity(DadosCadastroDto dto){
